@@ -49,18 +49,18 @@ public class GoogleAnalyticsPageDecorator extends PageDecorator {
     }
    
     public boolean getAnonymizeIp() {
-    	return anonymizeIp;
+        return anonymizeIp;
     }
     
     public void setAnonymizeIp(boolean anonymizeIp) {
-    	this.anonymizeIp = anonymizeIp;
+        this.anonymizeIp = anonymizeIp;
     }
     
     public boolean getDisplayFeatures() {
-    	return displayFeatures;
+        return displayFeatures;
     }
     
     public void setDisplayFeatures(boolean displayFeatures) {
-    	this.displayFeatures = displayFeatures;
+        this.displayFeatures = displayFeatures;
     }
 }
