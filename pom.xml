@@ -9,7 +9,7 @@
 
   <artifactId>googleanalytics</artifactId>
   <packaging>hpi</packaging>
-  <name>Hudson Google Analytics Plug-in</name>
+  <name>Google Analytics Plug-in</name>
   <version>1.4-SNAPSHOT</version>
   <url>http://wiki.jenkins-ci.org/display/JENKINS/Google+Analytics+Plugin</url>
 
