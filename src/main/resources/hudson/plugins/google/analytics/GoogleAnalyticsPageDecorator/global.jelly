@@ -6,5 +6,8 @@
     <f:entry title="Domain Name" help="/plugin/googleanalytics/domainName.html">
       <f:textbox field="domainName"/>
     </f:entry>
+    <f:entry title="Anonymize Ip">
+    	<f:checkbox field="anonymizeIp"/>
+    </f:entry>
   </f:section>
 </j:jelly>
