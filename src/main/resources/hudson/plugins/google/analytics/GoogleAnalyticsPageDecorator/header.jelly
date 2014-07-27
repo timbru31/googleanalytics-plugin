@@ -7,11 +7,13 @@
 		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 		
 		  ga('create', '${it.profileId}', 'auto');
-		  ga('send', 'pageview');
 		  <j:if test="${it.anonymizeIp==true}">
 		  	  ga('set', 'anonymizeIp', true);
 		  </j:if>
+  		  <j:if test="${it.displayFeatures==true}">
+		  	  ga('require', 'displayfeatures');
+		  </j:if>
+		 ga('send', 'pageview');
 		</script>
 	</j:if>
 </j:jelly>
-

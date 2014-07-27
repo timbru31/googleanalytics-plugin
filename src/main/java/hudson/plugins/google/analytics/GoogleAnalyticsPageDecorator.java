@@ -12,15 +12,15 @@ import hudson.model.PageDecorator;
 @Extension
 public class GoogleAnalyticsPageDecorator extends PageDecorator {
     private String profileId;
-    private String domainName;
     private boolean anonymizeIp;
+    private boolean displayFeatures;
 
     @DataBoundConstructor
-    public GoogleAnalyticsPageDecorator(String profileId, String domainName, boolean anonymizeIp) {
+    public GoogleAnalyticsPageDecorator(String profileId, boolean anonymizeIp, boolean displayFeatures) {
         this();
         this.profileId = profileId;
-        this.domainName = domainName;
         this.anonymizeIp = anonymizeIp;
+        this.displayFeatures = displayFeatures;
     }
     
     public GoogleAnalyticsPageDecorator() {
@@ -47,14 +47,6 @@ public class GoogleAnalyticsPageDecorator extends PageDecorator {
     public void setProfileId(String profileId) {
         this.profileId = profileId;
     }
-    
-    public String getDomainName() {
-        return Util.fixEmpty(domainName);
-    }
-    
-    public void setDomainName(String domainName) {
-      this.domainName = domainName;
-    }
    
     public boolean getAnonymizeIp() {
     	return anonymizeIp;
@@ -62,5 +54,13 @@ public class GoogleAnalyticsPageDecorator extends PageDecorator {
     
     public void setAnonymizeIp(boolean anonymizeIp) {
     	this.anonymizeIp = anonymizeIp;
+    }
+    
+    public boolean getDisplayFeatures() {
+    	return displayFeatures;
+    }
+    
+    public void setDisplayFeatures(boolean displayFeatures) {
+    	this.displayFeatures = displayFeatures;
     }
 }
