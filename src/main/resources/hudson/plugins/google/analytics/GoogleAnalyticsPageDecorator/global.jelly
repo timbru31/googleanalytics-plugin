@@ -6,7 +6,7 @@
     <f:entry title="Anonymize Ip" help="/plugin/googleanalytics/anonymizeip.html">
       <f:checkbox field="anonymizeIp"/>
     </f:entry>
-    <f:entry title="Display Features" help="/plugin/googleanalytics/displayeatures.html">
+    <f:entry title="Display Features" help="/plugin/googleanalytics/displayfeatures.html">
       <f:checkbox field="displayFeatures"/>
     </f:entry>
     <f:entry title="Custom Features" help="/plugin/googleanalytics/customfeatures.html">
