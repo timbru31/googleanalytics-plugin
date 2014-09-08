@@ -9,5 +9,8 @@
     <f:entry title="Display Features" help="/plugin/googleanalytics/displayeatures.html">
       <f:checkbox field="displayFeatures"/>
     </f:entry>
+    <f:entry title="Custom Features" help="/plugin/googleanalytics/customfeatures.html">
+       <f:expandableTextbox field="customFeatures"/>
+    </f:entry>
   </f:section>
 </j:jelly>
