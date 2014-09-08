@@ -69,24 +69,24 @@ public class GoogleAnalyticsPageDecorator extends PageDecorator {
         this.displayFeatures = displayFeatures;
     }
 
-	public String getCustomFeatures() {
-		StringBuilder sb = new StringBuilder();
-		for (String s : this.customFeatures) {
-			sb.append(s);
-			sb.append("\n");
-		}
-		return sb.toString();
-	}
+    public String getCustomFeatures() {
+        StringBuilder sb = new StringBuilder();
+        for (String s : this.customFeatures) {
+            sb.append(s);
+            sb.append("\n");
+        }
+        return sb.toString();
+    }
 
-	public void setCustomFeatures(ArrayList<String> customFeatures) {
-		this.customFeatures = customFeatures;
-	}
-	
-	public void setCustomFeatures(String rawCustomFeatures) {
-		this.customFeatures = new ArrayList<String>();
-		StringTokenizer tokenizer = new StringTokenizer(rawCustomFeatures, "\t\n\r\f");
-		while (tokenizer.hasMoreTokens()) {
-			this.customFeatures.add(tokenizer.nextToken());
-		}
-	}
+    public void setCustomFeatures(ArrayList<String> customFeatures) {
+        this.customFeatures = customFeatures;
+    }
+    
+    public void setCustomFeatures(String rawCustomFeatures) {
+        this.customFeatures = new ArrayList<String>();
+        StringTokenizer tokenizer = new StringTokenizer(rawCustomFeatures, "\t\n\r\f");
+        while (tokenizer.hasMoreTokens()) {
+            this.customFeatures.add(tokenizer.nextToken());
+        }
+    }
 }
