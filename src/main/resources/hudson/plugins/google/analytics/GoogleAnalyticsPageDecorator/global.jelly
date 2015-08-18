@@ -3,8 +3,14 @@
     <f:entry title="Profile ID"  help="/plugin/googleanalytics/profileid.html">
       <f:textbox field="profileId"/>
     </f:entry>
-    <f:entry title="Domain Name" help="/plugin/googleanalytics/domainName.html">
-      <f:textbox field="domainName"/>
+    <f:entry title="Anonymize Ip" help="/plugin/googleanalytics/anonymizeip.html">
+      <f:checkbox field="anonymizeIp"/>
+    </f:entry>
+    <f:entry title="Display Features" help="/plugin/googleanalytics/displayfeatures.html">
+      <f:checkbox field="displayFeatures"/>
+    </f:entry>
+    <f:entry title="Custom Features" help="/plugin/googleanalytics/customfeatures.html">
+       <f:expandableTextbox field="customFeatures"/>
     </f:entry>
   </f:section>
 </j:jelly>

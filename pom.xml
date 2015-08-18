@@ -1,15 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.jvnet.hudson.plugins</groupId>
+    <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
-    <version>1.323</version>
-    <relativePath>../pom.xml</relativePath>
+    <version>1.479</version>
   </parent>
 
   <artifactId>googleanalytics</artifactId>
   <packaging>hpi</packaging>
-  <name>Hudson Google Analytics Plug-in</name>
+  <name>Google Analytics Plug-in</name>
   <version>1.4-SNAPSHOT</version>
   <url>http://wiki.jenkins-ci.org/display/JENKINS/Google+Analytics+Plugin</url>
 
@@ -20,8 +19,14 @@
       <email>eramfelt@gmail.com</email>
       <timezone>+1</timezone>
     </developer>
+    <developer>
+      <id>timbru31</id>
+      <name>Tim Brust</name>
+      <email>admin@dustplanet.de</email>
+      <timezone>+1</timezone>
+    </developer>
   </developers>
-  
+
   <licenses>
     <license>
       <name>MIT license</name>
@@ -53,20 +58,17 @@
     </repository>
   </distributionManagement>
 
+  <repositories>
+    <repository>
+      <id>repo.jenkins-ci.org</id>
+      <url>http://repo.jenkins-ci.org/public/</url>
+    </repository>
+  </repositories>
 
-    <repositories>
-        <repository>
-            <id>repo.jenkins-ci.org</id>
-            <url>http://repo.jenkins-ci.org/public/</url>
-        </repository>
-    </repositories>
-
-    <pluginRepositories>
-        <pluginRepository>
-            <id>repo.jenkins-ci.org</id>
-            <url>http://repo.jenkins-ci.org/public/</url>
-        </pluginRepository>
-    </pluginRepositories>
-</project>  
-  
-
+  <pluginRepositories>
+    <pluginRepository>
+      <id>repo.jenkins-ci.org</id>
+      <url>http://repo.jenkins-ci.org/public/</url>
+    </pluginRepository>
+  </pluginRepositories>
+</project>
