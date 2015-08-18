@@ -3,7 +3,7 @@
   <parent>
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
-    <version>1.440</version>
+    <version>1.479</version>
   </parent>
 
   <artifactId>googleanalytics</artifactId>
@@ -19,8 +19,14 @@
       <email>eramfelt@gmail.com</email>
       <timezone>+1</timezone>
     </developer>
+    <developer>
+      <id>timbru31</id>
+      <name>Tim Brust</name>
+      <email>admin@dustplanet.de</email>
+      <timezone>+1</timezone>
+    </developer>
   </developers>
-  
+
   <licenses>
     <license>
       <name>MIT license</name>
@@ -53,16 +59,16 @@
   </distributionManagement>
 
   <repositories>
-      <repository>
-          <id>repo.jenkins-ci.org</id>
-          <url>http://repo.jenkins-ci.org/public/</url>
-      </repository>
+    <repository>
+      <id>repo.jenkins-ci.org</id>
+      <url>http://repo.jenkins-ci.org/public/</url>
+    </repository>
   </repositories>
 
   <pluginRepositories>
-      <pluginRepository>
-          <id>repo.jenkins-ci.org</id>
-          <url>http://repo.jenkins-ci.org/public/</url>
-      </pluginRepository>
+    <pluginRepository>
+      <id>repo.jenkins-ci.org</id>
+      <url>http://repo.jenkins-ci.org/public/</url>
+    </pluginRepository>
   </pluginRepositories>
-</project>  
+</project>
