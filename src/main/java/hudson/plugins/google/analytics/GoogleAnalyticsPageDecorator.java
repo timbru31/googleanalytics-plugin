@@ -3,14 +3,13 @@ package hudson.plugins.google.analytics;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-import net.sf.json.JSONObject;
-
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.StaplerRequest;
 
 import hudson.Extension;
 import hudson.Util;
 import hudson.model.PageDecorator;
+import net.sf.json.JSONObject;
 
 @Extension
 public class GoogleAnalyticsPageDecorator extends PageDecorator {
@@ -27,9 +26,9 @@ public class GoogleAnalyticsPageDecorator extends PageDecorator {
         this.displayFeatures = displayFeatures;
         this.customFeatures = customFeatures;
     }
-    
+
     public GoogleAnalyticsPageDecorator() {
-        super(GoogleAnalyticsPageDecorator.class);
+        super();
         load();
     }
 
@@ -52,26 +51,26 @@ public class GoogleAnalyticsPageDecorator extends PageDecorator {
     public void setProfileId(String profileId) {
         this.profileId = profileId;
     }
-   
+
     public boolean getAnonymizeIp() {
         return anonymizeIp;
     }
-    
+
     public void setAnonymizeIp(boolean anonymizeIp) {
         this.anonymizeIp = anonymizeIp;
     }
-    
+
     public boolean getDisplayFeatures() {
         return displayFeatures;
     }
-    
+
     public void setDisplayFeatures(boolean displayFeatures) {
         this.displayFeatures = displayFeatures;
     }
 
     public String getCustomFeatures() {
         StringBuilder sb = new StringBuilder();
-        for (String s : this.customFeatures) {
+        for (String s : Util.fixNull(this.customFeatures)) {
             sb.append(s);
             sb.append("\n");
         }
@@ -81,7 +80,7 @@ public class GoogleAnalyticsPageDecorator extends PageDecorator {
     public void setCustomFeatures(ArrayList<String> customFeatures) {
         this.customFeatures = customFeatures;
     }
-    
+
     public void setCustomFeatures(String rawCustomFeatures) {
         this.customFeatures = new ArrayList<String>();
         StringTokenizer tokenizer = new StringTokenizer(rawCustomFeatures, "\t\n\r\f");
