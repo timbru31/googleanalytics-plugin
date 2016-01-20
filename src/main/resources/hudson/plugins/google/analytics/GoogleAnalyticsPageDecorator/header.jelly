@@ -18,7 +18,7 @@
           ${i}
         </j:forEach>
       </j:if>
-     ga('send', 'pageview');
+      ga('send', 'pageview');
     </script>
   </j:if>
 </j:jelly>

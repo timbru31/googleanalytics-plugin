@@ -4,11 +4,15 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.io.IOException;
+
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.jvnet.hudson.test.JenkinsRule;
 import org.jvnet.hudson.test.JenkinsRule.WebClient;
 import org.jvnet.hudson.test.recipes.LocalData;
+import org.xml.sax.SAXException;
 
 import com.gargoylesoftware.htmlunit.WebAssert;
 import com.gargoylesoftware.htmlunit.html.HtmlButton;
@@ -23,17 +27,21 @@ public class HeaderWebTest {
 
     @Rule
     public JenkinsRule j = new JenkinsRule();
+    private HtmlPage page;
+    private WebClient webClient = j.createWebClient();
+
+    @Before
+    public void setUp() throws IOException, SAXException {
+        webClient.setJavaScriptEnabled(false);
+        page = webClient.goTo("configure");
+    }
 
     /**
      * Asserts that the analytics script is in the head element.
      */
     @LocalData
     @Test
-    public void testHeadElementContainsScript() throws Exception {
-        WebClient webClient = j.createWebClient();
-        webClient.setJavaScriptEnabled(false);
-        HtmlPage page = webClient.goTo("configure");
-
+    public void testHeadElementContainsScript() {
         WebAssert.assertInputContainsValue(page, "_.profileId", "AProfileId");
         HtmlHead item = (HtmlHead) page.getElementsByTagName(HtmlHead.TAG_NAME).item(0);
         assertTrue("The page text did not contain the google analytics script", item.asXml().contains("window,document,'script','//www.google-analytics.com/analytics.js'"));
@@ -44,10 +52,7 @@ public class HeaderWebTest {
      */
     @LocalData
     @Test
-    public void testScriptContainsProfileWithinQuotation() throws Exception {
-        WebClient webClient = j.createWebClient();
-        webClient.setJavaScriptEnabled(false);
-        HtmlPage page = webClient.goTo("configure");
+    public void testScriptContainsProfileWithinQuotation() {
         WebAssert.assertInputContainsValue(page, "_.profileId", "AProfileId");
         assertTrue("The page text did not contain the profile", page.asXml().contains("ga('create', 'AProfileId', 'auto');"));
     }
@@ -56,10 +61,7 @@ public class HeaderWebTest {
      * Asserts that the header does not contain the google analytics script.
      */
     @Test
-    public void testEmptyHeaderIfEmptyProfileId() throws Exception {
-        WebClient webClient = j.createWebClient();
-        webClient.setJavaScriptEnabled(false);
-        HtmlPage page = webClient.goTo("configure");
+    public void testEmptyHeaderIfEmptyProfileId() {
         WebAssert.assertInputContainsValue(page, "_.profileId", "");
         assertFalse("The page text contained the profile", page.asXml().contains("ga('create', 'AProfileId', 'auto');"));
     }
@@ -79,11 +81,10 @@ public class HeaderWebTest {
         for (PageDecorator decorator : all) {
             if (decorator instanceof GoogleAnalyticsPageDecorator) {
                 GoogleAnalyticsPageDecorator googleAnalyticsPageDecorator = (GoogleAnalyticsPageDecorator) decorator;
-                assertEquals("The new profile id wasnt correct", "NewProfile", googleAnalyticsPageDecorator.getProfileId());
+                assertEquals("The new profile id was not correct", "NewProfile", googleAnalyticsPageDecorator.getProfileId());
                 match = true;
             }
         }
         assertTrue("Expected to find at least on Google Analytics Page Decorator", match);
-
     }
 }
